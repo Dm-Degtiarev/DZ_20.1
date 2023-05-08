@@ -9,8 +9,10 @@ class Command(BaseCommand):
     Заливает в них данные из фикстуры catalog_data.json
     """
     def handle(self, *args, **options):
+        """Основной код"""
         Category.objects.all().delete()
         Product.objects.all().delete()
+
         category_objects = []
         pruduct_objects = []
 
@@ -22,7 +24,6 @@ class Command(BaseCommand):
                 category_objects.append(
                     Category(**object['fields'])
                 )
-
             elif object['model'] == 'catalog.product':
                 pruduct_objects.append(
                     Product(**object['fields'])

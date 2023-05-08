@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.urls import path
 from catalog.apps import CatalogConfig
-from catalog.views import index, catalog
+from catalog.views import index, catalog, contacts
 
 
 app_name = CatalogConfig.name
 
 urlpatterns = [
     path('', index),
-    path('catalog/', catalog)
+    path('catalog/', catalog),
+    path('contacts/', contacts),
 ]
