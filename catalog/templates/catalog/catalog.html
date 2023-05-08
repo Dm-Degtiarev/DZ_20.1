@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>Catalog!</h1>
-
+<ul>
+{% for product in latest_products %}
+    <li>{{ product.product_name }}</li>
+{% endfor %}
+</ul>
 </body>
 </html>
