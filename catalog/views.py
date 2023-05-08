@@ -2,19 +2,13 @@ from django.shortcuts import render
 from catalog.models import Product, Contacts
 
 
+
 def index(request):
-    return render(request, 'catalog/index.html')
-
-
-def catalog(request):
-    latest_products = Product.objects.all()[:5]
+    products = Product.objects.all()
     context = {
-        'latest_products': latest_products,
+        'products': products
     }
-    for product in latest_products:
-        print(product.product_name)
-
-    return render(request, 'catalog/catalog.html', context)
+    return render(request, 'catalog/index.html', context)
 
 
 def contacts(request):
@@ -25,3 +19,12 @@ def contacts(request):
     }
 
     return render(request, 'catalog/contacts.html', context)
+
+
+def products(request):
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+
+    return render(request, 'catalog/products.html', context)
