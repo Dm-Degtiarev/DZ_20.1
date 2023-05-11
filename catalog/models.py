@@ -17,6 +17,7 @@ class Product(models.Model):
         return f"{self.pk} - {self.product_name}"
 
     class Meta:
+
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
 
