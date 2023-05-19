@@ -12,21 +12,8 @@
     <title>{% block title %}Главная{% endblock %}</title>
 </head>
 <body>
-    <header>
-        {% include 'catalog/includes/inc_catalog_menu.html' %}
-    </header>
-    <main>
-
-    </main>
-    <footer>
-
-    </footer>
-
-      <div class="container objects">
-        {% block content %}
-        {% endblock %}
-      </div>
-    <p>© 2023 Магазин электроники</p>
-
+    <tr> {{ object.product_name }}</tr>
+    <br> <img class="rounded-circle" src="{{ object.product_image.url }}" alt="Generic placeholder image" width="200" height="200">
+    <br> <a class="btn btn-secondary" href="{% url 'catalog:products_list' %}" role="button">Назад </a>
 </body>
 </html>

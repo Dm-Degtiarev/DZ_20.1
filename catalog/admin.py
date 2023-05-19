@@ -1,5 +1,5 @@
 from django.contrib import admin
-from catalog.models import Product, Category, Contacts
+from catalog.models import Product, Category, Contacts, Blog
 
 
 # admin.site.register(Product)  -   по дефолту - __str__
@@ -23,3 +23,10 @@ class ContactsAdmin(admin.ModelAdmin):
     list_display = ('id', 'contact_name', 'contact_number')
     search_fields = ('id', 'contact_name', 'contact_number')
     list_filter = ('contact_name',)
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('id', 'blog_name', 'blog_views_count', 'blog_slug')
+    search_fields = ('blog_name', 'blog_content')
+    list_filter = ('blog_create_date',)
